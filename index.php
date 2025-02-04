@@ -55,6 +55,7 @@
                         <td>{$rezervace["den"]}</td>
                         <td>{$rezervace["zacatek"]}</td>
                         <td>{$rezervace["konec"]}</td>
+                        <td>{$rezervace["id"]}</td>
                         <td>
                             <form method="post">
                                 <button type="submit" class="zrusit" name="smazat" value="{$rezervace['id']}">Zrušit</button>
@@ -72,6 +73,7 @@
                         <th>Den</th>
                         <th>Začátek</th>
                         <th>Konec</th>
+                        <th>Id</th>
                         <th>Akce</th>
                     </tr>
                     $tableRows
@@ -95,6 +97,19 @@
             }
         }
     }
+
+   if (isset($_POST["smazat"])) {
+        $id = $_POST["smazat"];
+        $data = cist();
+        if ($data) {
+            foreach ($data as $rezervace) {
+                if ($rezervace["id"] == $id) {
+                    unset($data[array_search($rezervace, $data)]);
+                    file_put_contents("madeReservations.json", json_encode($data, JSON_PRETTY_PRINT));
+                }
+            }
+        }
+   }
 
     # Odeslání formuláře
     if (isset($_POST["odeslat"])) {
