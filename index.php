@@ -70,7 +70,7 @@
                     <tr>
                         <th>Jméno</th>
                         <th>Místnost</th>
-                        <th>Den</th>
+                        <th>Den (y-m-d)</th>
                         <th>Začátek</th>
                         <th>Konec</th>
                         <th>Id</th>
@@ -144,44 +144,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Rezervace místností</title>
 </head>
 <body>
-   <h1>Rezervace místností</h1> <br>
+   <h1 style="text-align: center;">Rezervace místností</h1> <br>
    
-   <form method="post">
-        <h2>Vytvoření rezervace</h2>
+   <div class="container">
+       <form method="post">
+            <h2>Vytvoření nové rezervace</h2>
 
-        <!-- Input pro jméno a příjmení -->
-        <label for="jmeno">Jméno a příjmení:</label> <br>
-        <input type="text" name="jmeno" id="jmeno" placeholder="Jan Novák" required> <br>
+            <!-- Input pro jméno a příjmení -->
+            <label for="jmeno">Jméno a příjmení:</label> <br>
+            <input type="text" name="jmeno" id="jmeno" placeholder="Jan Novák" required> <br>
 
-        <!-- Vybrání místnosti -->
-        <label for="mistnost">Vyberte si místnost:</label> <br>
-        <select name="mistnost" id="vybrat-mistnost" required>
-            <option value="Místnost 1">Místnost 1</option>
-            <option value="Místnost 2">Místnost 2</option>
-            <option value="Místnost 3">Místnost 3</option>
-            <option value="Místnost 4">Místnost 4</option>
-        </select> <br>
+            <!-- Vybrání místnosti -->
+            <label for="mistnost">Vyberte si místnost:</label> <br>
+            <select name="mistnost" id="vybrat-mistnost" required>
+                <option value="Místnost 1">Místnost 1</option>
+                <option value="Místnost 2">Místnost 2</option>
+                <option value="Místnost 3">Místnost 3</option>
+                <option value="Místnost 4">Místnost 4</option>
+            </select> <br>
 
-        <!-- Vybrání dne -->
-        <label for="den">Vyberte den:</label> <br>
-        <input type="date" name="den" required> <br>
+            <!-- Vybrání dne -->
+            <label for="den">Vyberte den:</label> <br>
+            <input type="date" name="den" required> <br>
 
-        <!-- Vybrání času -->
-        <label for="zacatek">Čas od:</label>
-        <input type="time" name="zacatek" required> <br>
-        <label for="konec">Čas do:</label>
-        <input type="time" name="konec" required> <br> 
-        
-        <!-- Odeslání formuláře -->
-        <input type="submit" value="Rezervovat" name="odeslat">
-   </form>
-   <aside>
-        <h2>Vytvořené rezervace</h2>
-        <?php vypsat(); ?>
-   </aside>
+            <!-- Vybrání času -->
+            <label for="zacatek">Čas od:</label>
+            <input type="time" name="zacatek" required> <br>
+            <label for="konec">Čas do:</label>
+            <input type="time" name="konec" required> <br> 
+            
+            <!-- Odeslání formuláře -->
+            <input type="submit" value="Rezervovat" name="odeslat">
+       </form>
+       <section>
+            <h2>Vytvořené rezervace</h2>
+            <?php vypsat(); ?>
+        </section>
+   </div>
 </body>
 </html>

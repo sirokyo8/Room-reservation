@@ -1,10 +1,26 @@
-{
-    "1": {
-        "jmeno": "slkfd",
+[
+    {
+        "jmeno": "Jan Nov\u00e1k",
         "mistnost": "M\u00edstnost 1",
-        "den": "2025-02-07",
-        "zacatek": "15:07",
-        "konec": "15:08",
-        "id": "67a2033ee75fe"
+        "den": "2025-02-14",
+        "zacatek": "21:24",
+        "konec": "23:24",
+        "id": "67a24d388fe5a"
+    },
+    {
+        "jmeno": "Pavel Pol\u00edvka",
+        "mistnost": "M\u00edstnost 1",
+        "den": "2025-02-20",
+        "zacatek": "20:26",
+        "konec": "21:26",
+        "id": "67a24d6c22a3f"
+    },
+    {
+        "jmeno": "Janek Sk\u0159ivan",
+        "mistnost": "M\u00edstnost 1",
+        "den": "2025-02-25",
+        "zacatek": "20:25",
+        "konec": "22:29",
+        "id": "67a24d8110db3"
     }
-}
+]
