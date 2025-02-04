@@ -82,6 +82,20 @@
         
     }
 
+    # Funkce pro ověření kolize rezervací
+    function overitKolizi($mistnost, $den, $zacatek, $konec) {
+        $data = cist();
+        if ($data) {
+            foreach ($data as $rezervace) {
+                if ($rezervace["mistnost"] == $mistnost && $rezervace["den"] == $den) {
+                    if ($rezervace["zacatek"] < $konec && $rezervace["konec"] > $zacatek) {
+                        return True;
+                    }
+                }
+            }
+        }
+    }
+
     # Odeslání formuláře
     if (isset($_POST["odeslat"])) {
         $jmeno = $_POST["jmeno"];
@@ -89,7 +103,24 @@
         $den = $_POST["den"];
         $zacatek = $_POST["zacatek"];
         $konec = $_POST["konec"];
-        zapsat($jmeno, $mistnost, $den, $zacatek, $konec);
+
+        $dnes = date("Y-m-d");
+        date_default_timezone_set('Europe/Prague');
+        $validniCas = date("H:i", strtotime('+30 minutes'));
+
+        # Kontrola, zda může být rezervace vytvořena
+        if ($den < $dnes) {
+            echo "Nelze vytvořit rezervaci v minulosti";
+        } elseif ($den == $dnes && $zacatek < $validniCas) {
+            echo "Rezervace musí být vytvořena dříve než 30 minut před začátkem";
+        } elseif ($zacatek >= $konec) {
+            echo "Začátek rezervace musí být před koncem!";
+        } elseif (overitKolizi($mistnost, $den, $zacatek, $konec)) {
+            echo "V této místnosti je již vytvořena rezervace pro zadaný čas.";
+        } else {
+            zapsat($jmeno, $mistnost, $den, $zacatek, $konec);
+        }
+
     }
 ?>
 
