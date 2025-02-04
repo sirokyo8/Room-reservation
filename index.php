@@ -185,7 +185,9 @@
        </form>
        <section>
             <h2>Vytvořené rezervace</h2>
-            <?php vypsat(); ?>
+            <div class="table-container">
+                <?php vypsat(); ?>
+            </div>
         </section>
    </div>
 </body>

@@ -16,15 +16,19 @@ body {
     max-width: 85%;
     margin: 0 auto;
     height: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 form {
-    flex: 1; /* Nastavení poměru 1 */
-    margin-right: 100px;
+    flex: 1;
+    margin-right: 35px; 
+    max-width: 25%;
 }
 
 section {
-    flex: 3; /* Nastavení poměru 3 */
+    flex: 3;
+    max-width: 75%;
 }
 
 label {
@@ -51,12 +55,12 @@ input[type="submit"] {
     cursor: pointer;
     font-weight: 500;
     font-size: 20px;
-    transition: background-color 0.3s, box-shadow 0.3s; /* Přidán přechod */
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 input[type="submit"]:hover {
     background-color: rgb(0, 160, 0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Přidán stín */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -65,41 +69,64 @@ h2 {
     padding-bottom: 5px;
 }
 
+.table-container {
+    overflow-x: auto; /* Přidáno pro zpracování přetečení */
+    margin-top: 20px;
+}
+
 table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid rgb(200, 200, 200);
-    text-align: center;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
 }
 
 th {
-    background-color: rgb(240, 240, 240);
-    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr {
+    background-color: white;
 }
 
 tr:nth-child(even) {
-    background-color: rgb(245, 245, 245);
+    background-color: #f2f2f2;
 }
 
 tr:hover {
-    background-color: rgb(230, 230, 230);
+    background-color: #ddd;
 }
 
 button.zrusit {
-    background-color: rgb(255, 0, 0);
+    background-color: #ff4d4d;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 4px 8px; /* Zmenšeno padding */
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 button.zrusit:hover {
-    background-color: rgb(200, 0, 0);
+    background-color: #ff1a1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1036px) {
+    .container {
+        flex-direction: column;
+    }
+
+    form, section {
+        max-width: 100%;
+        margin-right: 0;
+    }
 }
